@@ -6,7 +6,7 @@ matrix:
 language: c++
 script:
 - cd $TRAVIS_BUILD_DIR
-- g++ -g -c -o test.o -fprofile-arcs -ftest-coverage test.cpp 
+- g++ -g -c -o test.o -fprofile-arcs -ftest-coverage test1.cpp 
 - g++ --coverage -lgcov -o test test.o
 - ./test
 - lcov -c -d . -o tracefile_test
