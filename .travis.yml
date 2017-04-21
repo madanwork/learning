@@ -14,5 +14,5 @@ script:
 - coveralls --build-root $TRAVIS_BUILD_DIR --no-gcov --lcov-file tracefile
 before_install:
 - travis_retry sudo apt-get update
-- travis_retry sudo apt-get install git libgcrypt11-dev zlib1g-dev g++ libssl-dev nasm libyaml-dev lcov
+- travis_retry sudo apt-get install git libgcrypt11-dev zlib1g-dev g++ libssl-dev nasm gcov libyaml-dev lcov
 - pip install cpp-coveralls
