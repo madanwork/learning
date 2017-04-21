@@ -17,7 +17,7 @@ void fn2()
 int main()
 {
  fn1();
- fn2();
+// fn2();
  return 0;
 }
 
