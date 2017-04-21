@@ -6,13 +6,13 @@ matrix:
 language: c++
 script:
 - cd $TRAVIS_BUILD_DIR
-- g++ -c -o test.o -fprofile-arcs -ftest-coverage test.cpp 
-- g++ -o test -lgcov test.o
+- g++ -g -c -o test.o -fprofile-arcs -ftest-coverage test.cpp 
+- g++ --coverage -lgcov -o test test.o
 - ./test
 - lcov -c -d . -o tracefile_test
 - lcov --remove tracefile_test '/usr/include/*' -o tracefile
 - coveralls --build-root $TRAVIS_BUILD_DIR --no-gcov --lcov-file tracefile
 before_install:
 - travis_retry sudo apt-get update
-- travis_retry sudo apt-get install git libgcrypt11-dev zlib1g-dev g++ libssl-dev nasm gcov libyaml-dev lcov
+- travis_retry sudo apt-get install git libgcrypt11-dev zlib1g-dev g++ libssl-dev nasm libyaml-dev lcov
 - pip install cpp-coveralls
